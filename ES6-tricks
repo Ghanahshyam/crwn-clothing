@@ -1,0 +1,10 @@
+<div className="directory-menu">
+    {this.state.sections.map(({ id, ...otherSectionProps }) => (
+    <MenuItem
+        key={id}
+        {...otherSectionProps}
+        XXXXXXX title={title}, linkUrl={linkUrl}
+    ></MenuItem>
+))}
+</div>
+

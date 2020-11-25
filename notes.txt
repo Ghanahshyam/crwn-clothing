@@ -2,8 +2,13 @@ node_modules => packages
 
 yarn-lock.json => package-lock.json
 >> allow us to have consistent dependencies with same versions
+>> to install respective version no matter what 
+"resolutions" : {
+    "babel-jext": "24.7.1" 
+  }
 
 testing / linting => packges only for dev.
+
 
 scr
  > components
@@ -15,3 +20,63 @@ scr
 <div style={{
       backgroundImage:`url(${imageUrl})`
   }} className="menu-item">
+
+Updating to latest reactpackages
+npm update -D => Add dev dependencies
+5 vuneralibilities => version with insecurities or othe issues
+** soln:- npm audit fix
+
+In SPA => Servers only focusing on gettting Data 
+browser history api and routing liraby helps up browser navigation back and format_shapes
+
+React => Library, for routing => use another library -> react-router **stand
+Angular => Framework a whole
+
+Routing Library => react router
+
+<Route exact path='/hats' component={HatsPage}></Route
+as long as path matches it will render the home Page hence exact
+<BrowserRouter>
+      <App />
+</BrowserRouter>
+
+<Switch>
+  <Route path='/' component={HomePage}></Route>
+  <Route path='/hats' component={HatsPage}></Route>
+  <Route path='/hats/:hatId' component={HatsDetail}></Route>
+</Switch>
+First match will be rendered, to provide more control
+
+every rendered component gets 3 props
+ex:- 
+const HatsPage = (props) => {
+  console.log(props)
+  return(
+    <div>
+      <h1> Hast Page </h1>
+    </div>);
+};
+
+history > 
+2 ways to navigate => what part of component to hijack
+> use of link  => redirect and rerender
+  <Link to='/topics'></Link>
+> use of history => more dynamic access
+  <button onClick={ () => props.history.push('/topics')}>topics</button>
+
+
+location > pathname => full pathname
+
+match > url:'topics/13' path: set at component '/hats' ..nested router
+<Link to={`${props.match.url}/13`}></Link>
+
+isExact : boolean true if exact matches 
+params : url params
+
+
+bad patterns => Prop tunneling/ Prop drilling
+Adding history from parent to child compoent not needed
+
+import { withRouter } from 'react-router-dom';
+Higer Order component => a function takes a compoent as argumant 
+and turns into another modifies compoent
