@@ -1,0 +1,17 @@
+node_modules => packages 
+
+yarn-lock.json => package-lock.json
+>> allow us to have consistent dependencies with same versions
+
+testing / linting => packges only for dev.
+
+scr
+ > components
+  -> resuable components
+ > pages
+  -> component not used more than one
+
+
+<div style={{
+      backgroundImage:`url(${imageUrl})`
+  }} className="menu-item">
