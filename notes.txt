@@ -80,3 +80,14 @@ Adding history from parent to child compoent not needed
 import { withRouter } from 'react-router-dom';
 Higer Order component => a function takes a compoent as argumant 
 and turns into another modifies compoent
+
+Presentational component :- Functional component with no state
+
+
+FireBase :- 
+Open messagin sytem => open subscriptions => Any changes happesn user will be udpated
+auth.onAuthStateChanged(user => {
+  this.setState({currentUser: user});
+  console.log(user);
+})
+

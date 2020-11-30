@@ -1,0 +1,6 @@
+CSS:- 
+Due box-sizing default value margin, padding affects size of element
+Soln:-
+* {
+  box-sizing: border-box;
+}
