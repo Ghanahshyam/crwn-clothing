@@ -4,3 +4,5 @@ Soln:-
 * {
   box-sizing: border-box;
 }
+
+<div className={`${size} menu-item`}>

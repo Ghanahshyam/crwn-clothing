@@ -1,0 +1,101 @@
+Redux => Event sourcing 
+changes and updates are work in cohesive way 
+
+Why?
+> React is good with view site only??
+> Good for managing large state 
+> useful for sharing data between components
+> predictable state management using 3 principle
+  1.Single source of truth.. a massive state
+  2.state is read only.. immutability not avoids un expected errors
+  3.Changes using pure functions.. receivs input and always return same output
+
+Action(user does) > Root Reducer(Pure function) return output > Store(updated) => React changes DOM 
+
+Flux pattern => Inspired Redux => unidirectional data flow
+Action => Dispatcher => Store => View
+
+MVC Patterns => Action => Controller(js file looks for action) => model(data) => updates view 
+Prob:- Model chanages linked criss crossing added difficult
+
+Redux Flow :- 
+with Redux state we could use some specific state repespect to component as well.
+
+
+** Humongous part of Development
+
+EX-> currentUSer needed in cart which is in header then 
+it needs to drill down to Cart through app => header => Cart  
+code becomes less resuable
+
+With redux we avoid props-drilling
+------------------------
+
+Reducer(App State) { home: {}, shop: {}, user: {}}
+
+HomeReducer(Slice of State)
+
+ShopReducer(Slice of State)
+
+UserReducer(Slice of State)
+
+-------
+step 0. component triger action SET_CURRENT_USER
+step 1. Actions: {type:string, payload:any} => 
+step 2. UserReducer function { currentUSer: {...}}
+step 3. Passes currentUSer as prop => 
+
+
+
+
+Middleware => redux logger 
+
+index.js
+import { Provider } from "react-redux";
+
+<Provider> // To get access everthing to Store object
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+</Provider>
+
+redux => root-reducer.js
+
+import { combineReducers } from 'redux';
+
+export default combineReducers({
+  user: userReducer
+});
+
+----
+userReducer.js => user slice
+const userReducer = (currentState, action) => {
+  switch (action.type) {
+    case 'SET_CURRENT_USER' : 
+      return {
+        ...currentState, 
+        currentUser: action.payload
+      } // Need to pass new object to be rendered
+    default: 
+    return currentState  
+  }
+}; // => {currentuser: {...}}
+--
+store.js
+
+const middlewares = [logger];// add multiple middlewares
+
+const store = createStore(rootReducer, applyMiddleware(...middlewares));
+...
+lots of configuration
+
+<Provider store={store}> // To get access everthing to Store object
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+</Provider>
+
+header.component.jsx
+import { connect } from "react-redux";//higher order component lets us modify who has acccess to redux
+
+

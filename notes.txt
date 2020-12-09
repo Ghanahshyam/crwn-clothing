@@ -9,18 +9,13 @@ yarn-lock.json => package-lock.json
 
 testing / linting => packges only for dev.
 
-
 scr
  > components
   -> resuable components
  > pages
   -> component not used more than one
 
-
-<div style={{
-      backgroundImage:`url(${imageUrl})`
-  }} className="menu-item">
-
+dependencies and packagejson
 Updating to latest reactpackages
 npm update -D => Add dev dependencies
 5 vuneralibilities => version with insecurities or othe issues
@@ -57,7 +52,7 @@ const HatsPage = (props) => {
     </div>);
 };
 
-history > 
+1.history > 
 2 ways to navigate => what part of component to hijack
 > use of link  => redirect and rerender
   <Link to='/topics'></Link>
@@ -65,14 +60,12 @@ history >
   <button onClick={ () => props.history.push('/topics')}>topics</button>
 
 
-location > pathname => full pathname
+2.location > pathname => full pathname
 
-match > url:'topics/13' path: set at component '/hats' ..nested router
+3. match > url:'topics/13' path: set at component '/hats' ..nested router
 <Link to={`${props.match.url}/13`}></Link>
-
 isExact : boolean true if exact matches 
 params : url params
-
 
 bad patterns => Prop tunneling/ Prop drilling
 Adding history from parent to child compoent not needed
@@ -82,27 +75,4 @@ Higer Order component => a function takes a compoent as argumant
 and turns into another modifies compoent
 
 Presentational component :- Functional component with no state
-
-
-FireBase :- 
-Open messagin sytem => open subscriptions => Any changes happesn user will be udpated
-auth.onAuthStateChanged(user => {
-  this.setState({currentUser: user});
-  console.log(user);
-})
-
-In Firebase => NOSQL database => A big json
-
-Collection :- group of object of type document
-
-Get Collection data from fireStore
-
-fireStore.collection('users').doc('akafhdskjghskg').collection('cartItems')...
-fireStore.doc('users/akafhdskjghskg');
-
-Query => fireStore.doc('users/akafhdskjghskg') => QueryReference
-
-documentReference  Object => CRUD operations
-
-fireStore.
 

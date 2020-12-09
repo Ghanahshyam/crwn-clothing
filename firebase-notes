@@ -1,0 +1,19 @@
+FireBase :- 
+Open messagin sytem => open subscriptions => Any changes happesn user will be udpated
+auth.onAuthStateChanged(user => {
+  this.setState({currentUser: user});
+  console.log(user);
+})
+
+In Firebase => NOSQL database => A big json
+
+Collection :- group of object of type document
+
+Get Collection data from fireStore
+
+fireStore.collection('users').doc('akafhdskjghskg').collection('cartItems')...
+fireStore.doc('users/akafhdskjghskg');
+
+Query => fireStore.doc('users/akafhdskjghskg') => QueryReference
+
+documentReference  Object => CRUD operations
